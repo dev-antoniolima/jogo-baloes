@@ -1,6 +1,10 @@
 var timeId = null;
 function iniciaJogo() {
 
+	
+	var nivel_jogo = document.getElementById('nivel_jogo').value;
+	window.location.href = 'jogo.html?'+nivel_jogo;				
+
 	var url = window.location.search;
 
 	var nivel_jogo = url.replace("?", "");

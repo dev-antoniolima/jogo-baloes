@@ -1,4 +1,16 @@
+let iniciadoPrimeira = false;
+let balao;
+let quant_baloes;
+console.log(balao)
+
+
 function iniciaJogo() {
+
+ if (iniciadoPrimeira) {
+	document.getElementById('cenario').remove();
+	console.log(iniciadoPrimeira);
+	console.log(i);
+ }
 
 
 	var nivel_jogo = document.getElementById('nivel_jogo').value;
@@ -20,7 +32,7 @@ function iniciaJogo() {
 
 	document.getElementById('cronometro').innerHTML = tempo_segundos;
 
-	var quant_baloes = 20;
+	 quant_baloes = 20;
 
 
 	cria_baloes(quant_baloes);
@@ -45,14 +57,14 @@ function contagem_tempo(segundos) {
 }
 
 function cria_baloes(quant_baloes) {
-	for (var i = 1; i <= quant_baloes; i++) {
-		var balao = document.createElement("img");
+	for (i = 1; i <= quant_baloes; i++) {
+		balao = document.createElement("img");
 		balao.src = 'imagens/balao_azul_pequeno.png';
 		balao.style.margin = '10px';
 		balao.id = 'b' + i;
 		balao.onclick = function () { estourar(this) }
 		document.getElementById('cenario').appendChild(balao);
-
+		iniciadoPrimeira = true;
 
 	}
 
@@ -83,7 +95,7 @@ function estourar(e) {
 
 function situaco_jogo(baloes_inteiros, baloes_estourados) {
 	if (baloes_inteiros == 0) {
-		alert('Parabéns, você conseguiu instalar os balões a tempo.');
+		alert('Parabéns, você conseguiu estourar os balões a tempo.');
 		parar_jogo();
 	}
 }

@@ -7,7 +7,9 @@ console.log(balao)
 function iniciaJogo() {
 
  if (iniciadoPrimeira) {
+	location.reload()
 	document.getElementById('cenario').remove();
+	
 	console.log(iniciadoPrimeira);
 	console.log(i);
  }
